@@ -18,3 +18,4 @@ git clone git/rep
 
  ## Commits
 * classe
+* constructor, method

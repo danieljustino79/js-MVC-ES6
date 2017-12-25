@@ -19,12 +19,27 @@
 var n1 = new Negociacao();
 console.log(n1) //--{"data":"2017-12-25T21:04:13.982Z","quantidade":1,"valor":5.5}</pre>
 <hr>
+contructor, method
+<pre>class Negociacao{
+    constructor(d, q, v){
+        this.data = d;
+        this.quantidade = q;
+        this.valor = v;
+    }
 
+    obterVolume(){
+        return this.quantidade * this.valor;
+    }
+}
+
+var n1 = new Negociacao(new Date(), 1, 6.6);
+console.log(n1.valor) //--6.6</pre>
+<hr>
 
 </body>
 <script src="js/app/models/Negociacao.js"></script>
     <script>
-        var n1 = new Negociacao();
-        console.log(n1);
+        var n1 = new Negociacao(new Date(), 1, 6.6);
+        console.log(n1.valor)
     </script>
  </html>

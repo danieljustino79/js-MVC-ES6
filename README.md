@@ -21,3 +21,4 @@ git clone git/rep
 * constructor, method
 * private 
 * get somente leitura
+* imutar Date()

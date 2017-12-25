@@ -84,10 +84,35 @@ var n1 = new Negociacao(new Date(), 1, 6.6);
 console.log(n1.valor)</pre>
 <hr>
 
+imutar Date(), programação defensiva
+<pre>class Negociacao{
+    constructor(d, q, v){
+        //--defesa.2
+        //this._data = d;
+        this._data = new Date(d.getTime());
+        this._quantidade = q;
+        this._valor = v;
+
+        Object.freeze(this);
+    }
+
+    get data(){
+        //--defesa.1
+        //return this._data;
+        return new Date(this._data.getTime());
+    }
+}
+
+var data = new Date();
+var n1 = new Negociacao(data, 1, 6.6);
+data.setFullYear(2000); //--não funciona
+console.log(n1.data)</pre>
 </body>
 <script src="js/app/models/Negociacao.js"></script>
     <script>
-        var n1 = new Negociacao(new Date(), 1, 6.6);
-        console.log(n1.valor)
+        var data = new Date();
+        var n1 = new Negociacao(data, 1, 6.6);
+        data.setFullYear(2000);
+        console.log(n1.data)
     </script>
  </html>

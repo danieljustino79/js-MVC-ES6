@@ -56,11 +56,38 @@ var n1 = new Negociacao(new Date(), 1, 6.6);
 n1._valor = 1.1; //--não funciona
 console.log(n1._valor)</pre>
 <br>
+
+get somente leitura
+<pre>class Negociacao{
+    constructor(d, q, v){
+        this._data = d;
+        this._quantidade = q;
+        this._valor = v;
+
+        Object.freeze(this);
+    }
+
+    get data(){
+        return this._data;
+    }
+
+    get quantidade(){
+        return this._quantidade;
+    }
+
+    get valor(){
+        return this._valor;
+    }
+}
+
+var n1 = new Negociacao(new Date(), 1, 6.6);
+console.log(n1.valor)</pre>
+<hr>
+
 </body>
 <script src="js/app/models/Negociacao.js"></script>
     <script>
         var n1 = new Negociacao(new Date(), 1, 6.6);
-        n1._valor = 1.1;
-        console.log(n1._valor)
+        console.log(n1.valor)
     </script>
  </html>

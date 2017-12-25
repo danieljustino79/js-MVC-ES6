@@ -19,3 +19,5 @@ git clone git/rep
  ## Commits
 * classe
 * constructor, method
+* private 
+* get somente leitura

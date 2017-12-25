@@ -19,6 +19,7 @@
 var n1 = new Negociacao();
 console.log(n1) //--{"data":"2017-12-25T21:04:13.982Z","quantidade":1,"valor":5.5}</pre>
 <hr>
+
 contructor, method
 <pre>class Negociacao{
     constructor(d, q, v){
@@ -36,10 +37,30 @@ var n1 = new Negociacao(new Date(), 1, 6.6);
 console.log(n1.valor) //--6.6</pre>
 <hr>
 
+convenção de encapsulamento, private freeze(this)
+<pre>class Negociacao{
+    constructor(d, q, v){
+        this._data = d;
+        this._quantidade = q;
+        this._valor = v;
+
+        Object.freeze(this);
+    }
+
+    obterVolume(){
+        return this._quantidade * this._valor;
+    }
+}
+
+var n1 = new Negociacao(new Date(), 1, 6.6);
+n1._valor = 1.1; //--não funciona
+console.log(n1._valor)</pre>
+<br>
 </body>
 <script src="js/app/models/Negociacao.js"></script>
     <script>
         var n1 = new Negociacao(new Date(), 1, 6.6);
-        console.log(n1.valor)
+        n1._valor = 1.1;
+        console.log(n1._valor)
     </script>
  </html>

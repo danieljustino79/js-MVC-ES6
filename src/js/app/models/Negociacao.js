@@ -1,11 +1,13 @@
 class Negociacao{
     constructor(d, q, v){
-        this.data = d;
-        this.quantidade = q;
-        this.valor = v;
+        this._data = d;
+        this._quantidade = q;
+        this._valor = v;
+
+        Object.freeze(this);
     }
 
     obterVolume(){
-        return this.quantidade * this.valor;
+        return this._quantidade * this._valor;
     }
 }

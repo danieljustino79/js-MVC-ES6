@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+     <meta charset="UTF-8">
+     <title>JS MVC ES6</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+     
+ </head>
+ <body class="container-fluid">
+    controller
+    <pre>class NegociacaoController{
+    
+    constructor(){
+        this._data = new Date('2020-02-20')
+        this._quantidade = 1;
+        this._valor = 2.2;
+    }
+
+    adiciona(){
+
+        let negociacao = new Negociacao(
+            this._data,
+            this._quantidade,
+            this._valor);
+        console.log(negociacao) //--{"_data":"2020-02-20","_quantidade":1,"_valor":2.2}
+    }
+}
+
+var controller = new NegociacaoController();
+controller.adiciona();</pre>
+<hr>
+
+</body>
+<script src="js/app/models/Negociacao.js"></script>
+<script src="js/app/controllers/NegociacaoController.js"></script>
+    <script>
+        var controller = new NegociacaoController();
+        controller.adiciona();
+    </script>
+ </html>

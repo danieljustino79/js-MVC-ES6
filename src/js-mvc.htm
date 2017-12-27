@@ -11,12 +11,13 @@
     <pre>class NegociacaoController{
     
     constructor(){
-        this._data = new Date('2020-02-20')
+        this._data = new Date('2020-02-20');
         this._quantidade = 1;
         this._valor = 2.2;
     }
 
-    adiciona(){
+    adiciona(event){
+        event.preventDefault(); 
 
         let negociacao = new Negociacao(
             this._data,
@@ -27,14 +28,25 @@
 }
 
 var controller = new NegociacaoController();
-controller.adiciona();</pre>
+controller.adiciona(ev);</pre>
 <hr>
+
+comunicação entre Html form com o objeto NegociacaoController
+<pre>&lt;script src=&quot;js/app/models/Negociacao.js&quot;&gt;&lt;/script&gt; 
+&lt;script src=&quot;js/app/controllers/NegociacaoController.js&quot;&gt;&lt;/script&gt;
+    
+&lt;script&gt;let negociacaoController = new NegociacaoController();&lt;/script&gt;
+
+&lt;form class="form"  onSubmit="negociacaoController.adiciona(event)"
+</pre>
 
 </body>
 <script src="js/app/models/Negociacao.js"></script>
 <script src="js/app/controllers/NegociacaoController.js"></script>
     <script>
+        var evt = new Event("nome");
+
         var controller = new NegociacaoController();
-        controller.adiciona();
+        controller.adiciona(evt);
     </script>
  </html>

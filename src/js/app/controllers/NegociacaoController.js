@@ -6,12 +6,12 @@ class NegociacaoController{
         this._valor = 2.2;
     }
 
-    adiciona(){
-
+    adiciona(event){
+        event.preventDefault(); 
         let negociacao = new Negociacao(
             this._data,
             this._quantidade,
             this._valor);
-        console.log(JSON.stringify(negociacao))
+        console.log('ctrl:'+JSON.stringify(negociacao))
     }
 }

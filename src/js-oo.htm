@@ -107,6 +107,20 @@ var data = new Date();
 var n1 = new Negociacao(data, 1, 6.6);
 data.setFullYear(2000); //--não funciona
 console.log(n1.data)</pre>
+formato de data do input do form Html: '2020-11-25', que sera parametro da classe Date() 
+<pre>
+    
+let dataErro = new Date('2020-11-25'); 
+dataErro Fri Nov 24 2020 22:00:00 GMT-0200
+
+let data1 = new Date('2020-11-25'.split('-')); 
+data1 Sat Nov 25 2020 00:00:00 GMT-0200
+        
+let data22 = new Date('2020,11,25');
+data22 Sat Nov 25 2020 00:00:00 GMT-0200
+        
+let dErro = new Date(2017,11,25); 
+dErro Mon Dec 25 2017 00:00:00 GMT-0200</pre>
 </body>
 <script src="js/app/models/Negociacao.js"></script>
     <script>

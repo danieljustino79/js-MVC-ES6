@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+     <meta charset="UTF-8">
+     <title>JS MVC ES6</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+     
+ </head>
+ <body class="container-fluid">
+let escopo local
+ <div class="row">
+    <div class="col-md-6">
+<pre>if(idade >= 18) {
+    let msg = 'Pode dirigir';
+    console.log(msg);
+}
+alert(msg); //--undefined</pre>
+</div>
+    <div class="col-md-6">
+<pre>if(idade >= 18) {
+    var msg = 'Pode dirigir';
+    console.log(msg);
+}
+alert(msg); //--Pode dirigir</pre>
+</div>
+ </div>    
+<hr>
+
+templateString semelhante ao string.Format() C#
+<pre>let nome = 'Sam'; 
+let frase = `frase com interpolação exemplo:${nome}`;</pre>
+<hr>
+
+seletor estilo Jquery
+<pre>&lt;input type=&quot;text&quot; id=&quot;txtNome&quot;&gt;
+    
+let $ = document.querySelector.bind(document);
+
+this._nome = $('#txtNome');  </pre>
+<hr>
+
+spread ...
+<pre>let vet = [5, 5, 2];
+function Calc(v0, v1, v2){
+    console.log('unidade:'+v0 + v1 + v2) //--unidade:552
+}
+Calc(...vet);</pre>
+<hr>
+
+arrow function
+<div class="row">
+        <div class="col-md-6">
+<pre>let v2 = 20;
+
+let t = (p1) => { 
+ return p1 + 2;
+}
+
+v2 = t(v2);
+console.log(v2) //--22</pre>
+    </div>
+        <div class="col-md-6">
+    <pre>let v1 = 10;
+
+function transformar(p1){ 
+ return p1 + 2;
+}
+
+v1 = transformar(v1);
+console.log(v1) //--12</pre>
+    </div>
+     </div>
+
+</body>
+<script src="js/app/Helpers/DateHelper.js">  
+</script>
+<script src="js/app/models/Negociacao.js"></script>
+<script src="js/app/controllers/NegociacaoController.js"></script>
+    <script>
+        //SPREAD
+        let vet = [5, 5, 2];
+        function Calc(v0, v1, v2){
+            console.log('unidade:'+v0 + v1 + v2)
+        }
+        Calc(...vet);
+
+        //ARROW
+        let v1 = 10;
+        function transformar(p1){ 
+    return p1 +2;
+         }
+         v1 = transformar(v1);
+         console.log(v1);
+
+         //arrow
+         let v2 = 20;
+        let t = (p1) => { 
+    return p1 +2;
+         }
+         v2 = t(v2);
+         console.log(v2);
+
+         //STATIC
+         let d = DateHelper.dataParaTexto(new Date());
+         console.log(d)
+    </script>
+ </html>

@@ -16,10 +16,12 @@ git clone git/rep
  src/index.htm
  ``` 
 
- ## Commits
+ ## Commits (git log --pretty=medium)
 * classe
 * constructor, method
 * private 
 * get somente leitura
 * imutar Date()
 * controller
+* comunicação entre Html e NegociacaoController
+* es6 let, templateString, arrow e micro-helpers, static

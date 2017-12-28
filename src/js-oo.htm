@@ -37,6 +37,24 @@ var n1 = new Negociacao(new Date(), 1, 6.6);
 console.log(n1.valor) //--6.6</pre>
 <hr>
 
+method static e this
+<pre>class DateHelper{
+    static aux(dia){
+        return (dia > 31) ? 31 : dia;
+    }
+
+    //Template string js
+    static dataParaTexto(data){
+        let dia = this.aux(data.getDate());
+        let mes = data.getMonth() + 1;
+        let ano = data.getFullYear();
+
+        return `${dia}/${(mes)}/${ano}`;
+    }
+}
+
+let data = DateHelper.dataParaTexto(new Date());</pre>
+
 convenção de encapsulamento, private freeze(this)
 <pre>class Negociacao{
     constructor(d, q, v){
@@ -107,10 +125,8 @@ var data = new Date();
 var n1 = new Negociacao(data, 1, 6.6);
 data.setFullYear(2000); //--não funciona
 console.log(n1.data)</pre>
-formato de data do input do form Html: '2020-11-25', que sera parametro da classe Date() 
-<pre>
-    
-let dataErro = new Date('2020-11-25'); 
+formato de data do input do form Html: 'aaaa-mm-dd', que sera parametro da classe Date() 
+<pre>let dataErro = new Date('2020-11-25'); 
 dataErro Fri Nov 24 2020 22:00:00 GMT-0200
 
 let data1 = new Date('2020-11-25'.split('-')); 

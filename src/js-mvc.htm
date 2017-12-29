@@ -40,8 +40,61 @@ comunicação entre Html form com o objeto NegociacaoController
 &lt;form class="form"  onSubmit="negociacaoController.adiciona(event)"
 </pre>
 <hr>
-ListModel - Collections - 
-https://cursos.alura.com.br/course/javascript-es6-orientacao-a-objetos-parte-1/task/16549
+
+collections (ListModel)
+<pre>class ListaNegociacoes{
+    constructor(){
+        this._negociacoes = [];
+    }
+
+    adiciona(negociacao){
+        this._negociacoes.push(negociacao);
+    }
+
+    get negociacoes(){
+        //--defesa.3
+        //return this._negociacoes;
+        return [].concat(this._negociacoes);
+    }
+}
+
+let listaNegociacoes = new ListaNegociacoes();
+let lista = listaNegociacoes.adiciona(negociacao);</pre>
+<hr>
+
+controller, jquery, collection, private
+<pre>class NegociacaoController{
+    
+    constructor(){
+        let $ = document.querySelector.bind(document);
+
+        this._data = $('#data');        
+        this._quantidade = $('#quantidade');
+        this._valor = $('#valor');
+
+        this._listaNegociacoes = new ListaNegociacoes();
+    }
+
+    adiciona(event){
+        event.preventDefault();  
+
+        let negociacao = this._criaNegociacao();
+        this._listaNegociacoes.adiciona(negociacao);
+    }
+
+    _criaNegociacao(){
+        let dataFormatada = DateHelper.textoParaData(this._data.value);  
+        let obj = new Negociacao(
+            dataFormatada,
+            this._quantidade.value,
+            this._valor.value);
+        return obj;
+    }
+}</pre>
+<hr>
+
+
+https://cursos.alura.com.br/course/javascript-es6-orientacao-a-objetos-parte-1/task/16556
 
 </body>
 <script src="js/app/models/Negociacao.js"></script>

@@ -7,7 +7,7 @@ class NegociacaoController{
         this._quantidade = $('#quantidade');
         this._valor = $('#valor');
 
-        //this._listaNegociacoes = new ListaNegociacoes();
+        this._listaNegociacoes = new ListaNegociacoes();
     }
 
     adiciona(event){
@@ -15,11 +15,11 @@ class NegociacaoController{
             event.preventDefault();  
 
             let negociacao = this._criaNegociacao();
-            //this._listaNegociacoes.adiciona(negociacao);
+            this._listaNegociacoes.adiciona(negociacao);
 
             this._limpaFormulario();
 
-console.log(negociacao)
+//console.log(negociacao)
             //console.log(this._listaNegociacoes.negociacoes)
 
             
@@ -32,7 +32,6 @@ console.log(negociacao)
     /*---Private---*/
     _criaNegociacao(){
         let dataFormatada = DateHelper.textoParaData(this._data.value);  
-
         let obj = new Negociacao(
             dataFormatada,
             this._quantidade.value,

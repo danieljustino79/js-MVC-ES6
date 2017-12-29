@@ -118,7 +118,7 @@ controller
         this._valor = $('#valor');
 
         this._listaNegociacoes = new ListaNegociacoes();
-        
+
         this._negociacoesView = new NegociacoesView($('#negociacoesView'));
         this._negociacoesView.update();
     }
@@ -141,12 +141,39 @@ view com responsabilidade
         this._elemento.innerHTML = this._template();
     }
 }</pre>
-
-<input type="hidden" id="data" value="2020-20-02">
+<input type="hidden" id="data" value="2020-10-20">
 <input type="hidden" id="quantidade" value="5">
 <input type="hidden" id="valor" value="2.2">
 <div id='negociacoesView'>oi</div>
 <hr>
+
+controller populando view
+<pre>this._listaNegociacoes = new ListaNegociacoes();
+this._negociacoesView = new NegociacoesView($('#negociacoesView'));
+this._negociacoesView.update(this._listaNegociacoes);</pre>
+view dinamica
+<pre>_template(model){
+    return `&lt;table class=&quot;table table-bordered&quot;&gt; 
+    &lt;thead&gt; 
+        &lt;tr&gt; 
+            &lt;th&gt;DATA&lt;/th&gt; &lt;th&gt;QUANTIDADE&lt;/th&gt; &lt;th&gt;VALOR&lt;/th&gt; &lt;th&gt;VOLUME&lt;/th&gt; 
+        &lt;/tr&gt; 
+    &lt;/thead&gt; 
+    &lt;tbody&gt; 
+        ${model.negociacoes.map( n =&gt; { 
+            return `&lt;tr&gt; 
+                &lt;td&gt;${DateHelper.dataParaTexto(n.data)}&lt;/td&gt; 
+                &lt;td&gt;${n.quantidade}&lt;/td&gt; 
+                &lt;td&gt;${n.valor}&lt;/td&gt; 
+                &lt;td&gt;${n.obterVolume()}&lt;/td&gt; &lt;/tr&gt;` 
+        }).join('')}
+    &lt;/tbody&gt; 
+&lt;/table&gt;`;
+}
+
+update(model){
+    this._elemento.innerHTML = this._template(model);
+}</pre>
 
 </body>
 <script src="js/app/helpers/DateHelper.js"></script>

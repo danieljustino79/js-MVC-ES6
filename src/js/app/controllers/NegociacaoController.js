@@ -1,6 +1,6 @@
 class NegociacaoController{
     
-    constructor(){
+    constructor(){        
         let $ = document.querySelector.bind(document);
 
         this._data = $('#data');        
@@ -8,6 +8,18 @@ class NegociacaoController{
         this._valor = $('#valor');
 
         this._listaNegociacoes = new ListaNegociacoes();
+        this._negociacoesView = new NegociacoesView($('#negociacoesView'));
+
+        this._negociacoesView.update();
+    }
+
+    //TESTE SEM FORM
+    InicializaSeletores(){
+        let $ = document.querySelector.bind(document);
+
+        this._data = $('#data');
+        this._quantidade = $('#quantidade');
+        this._valor = $('#valor');
     }
 
     adiciona(event){
@@ -18,14 +30,9 @@ class NegociacaoController{
             this._listaNegociacoes.adiciona(negociacao);
 
             this._limpaFormulario();
-
-//console.log(negociacao)
-            //console.log(this._listaNegociacoes.negociacoes)
-
-            
         }
         catch(ex){
-            console.log(ex.message)
+            console.log('negociacaoCtrl:'+ex.message)
         }       
     }
 

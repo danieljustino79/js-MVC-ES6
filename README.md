@@ -25,3 +25,5 @@ git clone git/rep
 * controller
 * comunicação entre Html e NegociacaoController
 * es6 let, templateString, arrow e micro-helpers, static
+* collections 
+* view

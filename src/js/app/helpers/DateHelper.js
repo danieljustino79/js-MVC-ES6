@@ -1,5 +1,5 @@
 class DateHelper{
-    //formato yyyy-mm-dd
+    //formato yyyy-dd-mm
     static _validaFormatoDigito(texto){
         //Fast fail
         //(\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])) mais coerente
@@ -7,7 +7,7 @@ class DateHelper{
     }
     static textoParaData(texto){
         if( ! this._validaFormatoDigito(texto))
-            throw new Error('DateHelper - erro de formato de data.');        
+            throw new Error('DateHelper - erro de formato de data yyyy-dd-mm.');        
         else
             return new Date(texto.split('-'));
     }

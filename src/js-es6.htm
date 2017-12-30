@@ -3,7 +3,7 @@
  <head>
      <meta charset="UTF-8">
      <title>JS MVC ES6</title>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/bootstrap.min.css">
      
  </head>
  <body class="container-fluid">
@@ -49,7 +49,7 @@ Calc(...vet);</pre>
 
 arrow function
 <div class="row">
-        <div class="col-md-6">
+    <div class="col-md-6">
 <pre>let v2 = 20;
 
 let t = (p1) => { 
@@ -71,7 +71,58 @@ function transformar(p1){
 v1 = transformar(v1);
 console.log(v1) //--12</pre>
     </div>
-     </div>
+</div>
+<hr>
+
+filter(), map(), reduce() LINQ-JS<br>
+vet.filter(function(valorAtual, indice))<br>
+filtra os resultado do array (where)
+<pre>var ages = [15, 17, 18, 40];
+
+function checkAdult(age) {
+    return age >= 18;
+}
+
+console.log(ages.filter(checkAdult))</pre>
+<hr>
+
+vet.map(function(valorAtual, indice))<br>
+transforma cada valor, se necessario
+<pre>var nro = [4, 9, 16, 25];
+console.log('map:'+nro.map(Math.sqrt))
+
+//--soma-100-pares
+console.log(nro.map((v,i) => (i%2 == 0) ? v+100 : v))
+</pre>
+<hr>
+
+vet.reduce(function(saida, valorAtual, indice, vetorOrigem), valorInicial)<br>
+transforma um array em 1 resultado primitivo (scalar)
+<pre>var numbers = [65, 12, 8];
+
+function getSum(total, num) {
+    return total + num;
+}
+console.log(numbers.reduce(function(saida, valor, i){
+    return saida + valor;
+})) 
+//--85</pre>
+função definida
+<pre>function obterSomatorio(saida, valor){
+    return saida + valor;
+}
+    
+console.log(numbers.reduce(obterSomatorio)) 
+//--85</pre>
+arrow
+<pre>console.log(numbers.reduce((t, n) => t+n)) //--85
+
+console.log(numbers.reduce((t, n) => t+n, 100)) //--inicia com 100
+</pre>
+erro de multiplicação devido ao zero
+<pre>console.log(numbers.reduce((t, n) => t * n, 0)) </pre>
+<hr>
+
 
 </body>
 <script src="js/app/Helpers/DateHelper.js">  
@@ -105,5 +156,40 @@ console.log(v1) //--12</pre>
          //STATIC
          let d = DateHelper.dataParaTexto(new Date());
          console.log(d)
+
+         //REDUCE
+         var numbers = [65, 12, 8];
+
+function getSum(total, num) {
+    return total + num;
+}
+console.log('red:'+numbers.reduce(function(saida, valor, i){
+    return saida + valor;
+}))
+
+function obterSomatorio(saida, valor){
+    return saida + valor;
+}    
+console.log('fd:'+numbers.reduce(obterSomatorio)) 
+
+console.log('arrow:'+numbers.reduce((t, n) => t+n)) 
+//--inicia com 100
+console.log('arrow100:'+numbers.reduce((t, n) => t+n, 100)) 
+//---erro de multiplicação
+console.log('erro multip:'+numbers.reduce((t, n) => t * n, 0)) 
+
+//MAP
+var nro = [4, 9, 16, 25];
+console.log('map:'+nro.map(Math.sqrt))
+console.log('map-soma-100-pares:'+nro.map((v,i) => (i%2 == 0) ? v+100 : v))
+
+//FILTER
+var ages = [15, 17, 18, 40];
+
+function checkAdult(age) {
+    return age >= 18;
+}
+
+console.log(ages.filter(checkAdult))
     </script>
  </html>

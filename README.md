@@ -27,3 +27,4 @@ git clone git/rep
 * es6 let, templateString, arrow e micro-helpers, static
 * collections 
 * view
+* filter(), map(), reduce()
